@@ -1,0 +1,3 @@
+*.sql linguist-detectable=true
+*.csv linguist-vendored=false
+dbt_project/seeds/*.csv linguist-generated=true
