@@ -1,0 +1,42 @@
+name: 'sp500_analytics'
+version: '1.0.0'
+config-version: 2
+
+profile: 'sp500_analytics'
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+seeds:
+  sp500_analytics:
+    sp500_shiller_raw:
+      +column_types:
+        Date: date
+        SP500: float
+        Dividend: float
+        Earnings: float
+        "Consumer Price Index": float
+        "Long Interest Rate": float
+        "Real Price": float
+        "Real Dividend": float
+        "Real Earnings": float
+        PE10: float
+
+models:
+  sp500_analytics:
+    staging:
+      +materialized: view
+      +schema: staging
+    intermediate:
+      +materialized: view
+      +schema: intermediate
+    marts:
+      +materialized: table
+      +schema: marts

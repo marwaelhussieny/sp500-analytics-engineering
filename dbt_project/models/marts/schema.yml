@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: fct_sp500_monthly
+    description: One row per month — price, returns, drawdown, and valuation.
+    columns:
+      - name: report_month
+        tests:
+          - not_null
+          - unique
+      - name: index_price
+        tests:
+          - not_null
+
+  - name: mart_valuation_quintiles
+    description: PE10 quintiles vs. average trailing 12-month forward return.
+    columns:
+      - name: pe10_quintile
+        tests:
+          - not_null
+          - unique
+          - accepted_values:
+              values: [1, 2, 3, 4, 5]
+
+  - name: mart_decade_summary
+    description: One row per decade — average valuation, average return, worst drawdown.
+    columns:
+      - name: decade
+        tests:
+          - not_null
+          - unique

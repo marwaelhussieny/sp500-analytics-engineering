@@ -1,0 +1,20 @@
+version: 2
+
+seeds:
+  - name: sp500_shiller_raw
+    description: >
+      Raw Shiller S&P 500 dataset (monthly, 1871-present), sourced from
+      https://github.com/datasets/s-and-p-500 (PDDL license). Extended
+      automatically past 2023-06 with FRED index-price-only data.
+
+models:
+  - name: stg_sp500_monthly
+    description: Cleaned, typed, and flagged version of the raw seed.
+    columns:
+      - name: report_month
+        tests:
+          - not_null
+          - unique
+      - name: index_price
+        tests:
+          - not_null

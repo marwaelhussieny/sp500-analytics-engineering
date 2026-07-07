@@ -1,0 +1,4 @@
+name: sp500
+type: duckdb
+options:
+  filename: sp500.duckdb

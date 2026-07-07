@@ -1,0 +1,12 @@
+# This project deliberately uses DuckDB, not Postgres/Snowflake: the entire
+# dataset is ~1,900 rows of monthly data, so a full external warehouse would
+# be overkill. DuckDB running against a local file is the right-sized choice
+# here, and it means CI needs zero external services.
+sp500_analytics:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "sp500.duckdb"
+      schema: staging
+      threads: 4

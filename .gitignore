@@ -1,0 +1,14 @@
+*.duckdb
+*.duckdb.wal
+
+dbt_project/target/
+dbt_project/logs/
+dbt_project/dbt_packages/
+
+evidence/node_modules/
+evidence/.evidence/
+evidence/build/
+evidence/.env
+
+__pycache__/
+.DS_Store
