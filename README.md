@@ -73,7 +73,14 @@ Evidence dashboard (reads marts only)
 - Valuation quintile analysis shows the cheapest-valuation months
   (1930s-era) followed by continued declines before the recovery — a real
   finding, not a smoothed-over "buy low" story
+  
+## Screenshots
 
+![Evidence dashboard](docs/screenshots/evidence_dashboard.png)
+*Full dashboard: KPIs, price history, valuation quintiles, decade summary*
+
+![dbt test output](docs/screenshots/dbt_test.png)
+*11/11 dbt tests passing*
 ## Running it
 
 ```bash
