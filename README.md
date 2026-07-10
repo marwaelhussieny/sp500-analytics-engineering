@@ -89,8 +89,9 @@ Dashboard runs at http://localhost:3000.
 > etc.) via `@evidence-dev/sqlite`, which requires compiling a native
 > `sqlite3` binding. This repo's `package.json` and `evidence.config.yaml`
 > are already trimmed to only the DuckDB connector to avoid that build
-> entirely — if you add other connectors back, use `--legacy-peer-deps` on
-> install.
+entirely — if you add other connectors back, use `npm install --force`
+(not `--legacy-peer-deps`, which skips required peer dependencies like
+`@sveltejs/vite-plugin-svelte` and breaks the dev server).
 
 ## Running dbt tests only (CI does this)
 

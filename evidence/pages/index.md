@@ -25,8 +25,16 @@ order by report_month
     fmt="#,##0.0"
 />
 
+```sql worst_drawdown
+select report_month, drawdown_from_peak_pct
+from sp500.fct_sp500_monthly
+where not is_price_only_row
+order by drawdown_from_peak_pct asc
+limit 1
+```
+
 <BigValue
-    data={[monthly.reduce((min, r) => r.drawdown_from_peak_pct < min.drawdown_from_peak_pct ? r : min)]}
+    data={worst_drawdown}
     value=drawdown_from_peak_pct
     title="Worst drawdown ever recorded"
     fmt="#,##0.0'%'"
