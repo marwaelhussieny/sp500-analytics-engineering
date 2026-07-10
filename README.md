@@ -46,24 +46,7 @@ handled:
 
 ## Architecture
 
-```
-seeds/sp500_shiller_raw.csv          (raw Shiller dataset, dbt seed)
-        │  dbt seed
-        ▼
-staging.stg_sp500_monthly            (typed, flagged for data quirks)
-        │
-        ├─▶ intermediate.int_sp500_returns     (MoM / trailing-12mo returns)
-        └─▶ intermediate.int_sp500_drawdowns   (running peak, drawdown %)
-        │
-        ▼
-marts.fct_sp500_monthly              (one row per month: price/returns/drawdown/valuation)
-        │
-        ├─▶ marts.mart_valuation_quintiles   (CAPE quintile vs. forward return)
-        └─▶ marts.mart_decade_summary        (decade rollups)
-        │
-        ▼
-Evidence dashboard (reads marts only)
-```
+![Pipeline architecture](docs/screenshots/architecture.png)
 
 ## Verified results (from a real dbt run against the real dataset)
 
